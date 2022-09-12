@@ -52,7 +52,8 @@
         justify-content: flex-end;
     }
     .chat-time{
-        font-size: 13px
+        font-size: 10px;
+        font-weight: bold;
     }
     .selected-user-chat{
         width: 60%;

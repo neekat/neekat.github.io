@@ -135,7 +135,7 @@ var friendUID;
 	msg.once('value').then(function(snapshot) {
         
 		 if(snapshot != null){
-			 				 console.log("normallllllllllll time .....................  " +snapshot.val());
+			 				
 			 snapshot.forEach(function(item) {
 
 			   if(item.val().from_uid == friendUID ){
@@ -345,9 +345,7 @@ $('#chat_box').keypress(function(e){
     f.off();
 
  f.on('child_added', function(item) {
-        
-		console.log("real time .....................  " +item.val());
-		
+
 			if(item != null){
 			   if(item.val().from_uid == friendUID ){
 				   

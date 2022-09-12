@@ -20,24 +20,44 @@ function doLogin() {
         password: $('#login_password').val()
     };
 
-    if (loginInfo.email !== '' && loginInfo.password !== '') {
-        
+    if (loginInfo.email !== '' && loginInfo.password !== '' && $('#otp_password').val() !== '') {
+        var docRef = dbRef.collection('otp').doc("CODE");
+
+docRef.get().then((doc) => {
+    if (doc.exists) {
+        var s = doc.data();
+        if($('#otp_password').val() == s.temp){
+                   
         auth.signInWithEmailAndPassword(loginInfo.email, loginInfo.password)
             .then(function (authData) {
-                loadPage("pages/otp.html");
+                
+            loadPage("pages/otp.html");
+   
+               
             }).catch(function (error) {
                  // $("#login_btn").removeClass("hidden");
                  // $("#login_loading").addClass("hidden");
                 console.log("Login Failed!", error);
             });
+        }
+    } else {
+        // doc.data() will be undefined in this case
+        console.log("No such document!");
+    }
+}).catch((error) => {
+    console.log("Error getting document:", error);
+});
+        
+
     }
 }
 function doOTP() {
+
     $("#login_loading").removeClass("hidden");
-    $("#login_btn").addClass("hidden");
+    $("#otp_btn").addClass("hidden");
 
     
-    var docRef = dbRef.collection('otp').doc("CODE");
+var docRef = dbRef.collection('otp').doc("CODE");
 
 docRef.get().then((doc) => {
     if (doc.exists) {
@@ -124,6 +144,7 @@ $("#login_by_fb").on("click", function(){
    }).catch(function(error) {
     $("#login_form").removeClass("hidden");
     $("#login_btn").removeClass("hidden");
+    $("#otp_btn").removeClass("hidden");
     $("#go_register_btn").removeClass("hidden");
     $("#fb_login_loading").addClass("hidden");
     $("#loading_text").addClass("hidden");

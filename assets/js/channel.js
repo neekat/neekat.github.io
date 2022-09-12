@@ -145,7 +145,7 @@ dbRef.collection('channelmessages').orderBy("msgtime").where("channel_id", "==",
             if (doc.data().msg_by != currentUser.uid) {
                 channelhtml += '<div class="friend-chat">'
                         +'<div class="selected-user-info">'
-                        + '<p id=""><span class="selected-user-full-name">'+doc.data().msg_by_name+'</span>&nbsp;&nbsp;'
+                        + '<p id=""><span class="selected-user-full-name"></span>&nbsp;&nbsp;'
                         +'<time class="chat-time" style="margin-top:-10px">'+doc.data().time+'</time></p>'
                         +'<p class="selected-user-chat">'+doc.data().text+'</p></div>'
                         +'</div>';
@@ -154,7 +154,7 @@ dbRef.collection('channelmessages').orderBy("msgtime").where("channel_id", "==",
                         +'<div class="selected-user-info">'
                         + '<p class="text-right">'
                         + '<time class="chat-time">'+doc.data().time+' </time> &nbsp;&nbsp;'
-                        +'<span class="selected-user-full-name">'+$("#currenUsersFullName").text()+'</span>'
+                        +'<span class="selected-user-full-name"></span>'
                         + '</p>'
                         +'<p class="selected-user-chat text-right pull-right" style="margin-top:-10px">'+doc.data().text+'</p></div>'
                         +'</div>';
@@ -174,7 +174,7 @@ dbRef.collection('channelmessages').orderBy("msgtime").where("channel_id", "==",
 
                   var  newMsg = '<div class="friend-chat">'
                                 +'<div class="selected-user-info">'
-                                + '<p id=""><span class="selected-user-full-name">'+change.doc.data().msg_by_name+'</span>&nbsp;&nbsp;'
+                                + '<p id="">'
                                 +'<time class="chat-time">'+change.doc.data().time+'</time></p>'
                                 +'<p class="selected-user-chat">'+change.doc.data().text+'</p></div>'
                                 +'</div>';
