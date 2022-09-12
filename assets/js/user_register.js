@@ -41,23 +41,23 @@ function doRegister(){
         if( passwords.password == passwords.cPassword ){
   
           
-        auth.createUserWithEmailAndPassword(userData.email, passwords.password)
-          .then(function(authUser){
-            var user = auth.currentUser;
-           userData.uid = user.uid;
-                usersRef.doc(user.uid).set(userData)
-                .then(function() {
-                        $("#registerDiv").fadeOut();
-                        $("#registerDiv").addClass("hidden");
-                        $("#registerSuccessDiv").removeClass("hidden");
-                        $("#registerSuccessDiv").fadeIn();
-                    
-                })
-
-          }).catch(function(error){
-                $("#register_btn").removeClass("hidden");
-                $("#register_loading").addClass("hidden");
-          });
+//        auth.createUserWithEmailAndPassword(userData.email, passwords.password)
+//          .then(function(authUser){
+//            var user = auth.currentUser;
+//           userData.uid = user.uid;
+//                usersRef.doc(user.uid).set(userData)
+//                .then(function() {
+//                        $("#registerDiv").fadeOut();
+//                        $("#registerDiv").addClass("hidden");
+//                        $("#registerSuccessDiv").removeClass("hidden");
+//                        $("#registerSuccessDiv").fadeIn();
+//                    
+//                })
+//
+//          }).catch(function(error){
+//                $("#register_btn").removeClass("hidden");
+//                $("#register_loading").addClass("hidden");
+//          });
       } else {
                 console.log("password and confirm password didn't match :", error);
         }
