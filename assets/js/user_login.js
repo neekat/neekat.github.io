@@ -7,6 +7,9 @@ $('#login_password').keypress(function (e) {
 $('#login_btn').on('click', function () {
     doLogin();
 });
+$('#otp_btn').on('click', function () {
+    doOTP();
+});
 
 
 function doLogin() {
@@ -18,16 +21,36 @@ function doLogin() {
     };
 
     if (loginInfo.email !== '' && loginInfo.password !== '') {
-
+        
         auth.signInWithEmailAndPassword(loginInfo.email, loginInfo.password)
             .then(function (authData) {
-                loadPage("pages/app.html");
+                loadPage("pages/otp.html");
             }).catch(function (error) {
                  // $("#login_btn").removeClass("hidden");
                  // $("#login_loading").addClass("hidden");
                 console.log("Login Failed!", error);
             });
     }
+}
+function doOTP() {
+    $("#login_loading").removeClass("hidden");
+    $("#login_btn").addClass("hidden");
+
+    
+    var docRef = dbRef.collection('otp').doc("CODE");
+
+docRef.get().then((doc) => {
+    if (doc.exists) {
+        console.log("Document data:", doc.data());
+    } else {
+        // doc.data() will be undefined in this case
+        console.log("No such document!");
+    }
+}).catch((error) => {
+    console.log("Error getting document:", error);
+});
+    
+    
 }
 
 

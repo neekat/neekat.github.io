@@ -24,6 +24,7 @@ const usersRef    = dbRef.collection('users');
 const messagesRef = dbRef.collection('messages');
 const friendsRef  = dbRef.collection('friends');
 const recentChatRef  = dbRef.collection('recentchat');
+const otpRef    = dbRef.collection('otp');
 
 
 
