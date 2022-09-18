@@ -10,6 +10,10 @@ function loadPageByJS(buttonID, pageURL){
     });
 }
 
+
+
+loadPage("pages/login.html")
+/*
 auth.onAuthStateChanged(function (user) {
     if (user) {
         loadPage("pages/app.html");
@@ -215,3 +219,4 @@ $(".friend-list").html("");
     }
 });   
     
+*/

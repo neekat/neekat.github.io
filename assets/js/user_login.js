@@ -27,18 +27,26 @@ docRef.get().then((doc) => {
     if (doc.exists) {
         var s = doc.data();
         if($('#otp_password').val() == s.temp){
+            
+
+            const q = query(usersRef, where("username", "==", loginInfo.email));
+            const querySnapshot = getDocs(q);
+            querySnapshot.forEach((doc) => {
+              // doc.data() is never undefined for query doc snapshots
+              console.log(doc.id, " => ", doc.data());
+            });
                    
-        auth.signInWithEmailAndPassword(loginInfo.email, loginInfo.password)
-            .then(function (authData) {
+        // auth.signInWithEmailAndPassword(loginInfo.email, loginInfo.password)
+        //     .then(function (authData) {
                 
-            loadPage("pages/otp.html");
+        //     loadPage("pages/otp.html");
    
                
-            }).catch(function (error) {
-                 // $("#login_btn").removeClass("hidden");
-                 // $("#login_loading").addClass("hidden");
-                console.log("Login Failed!", error);
-            });
+        //     }).catch(function (error) {
+        //          // $("#login_btn").removeClass("hidden");
+        //          // $("#login_loading").addClass("hidden");
+        //         console.log("Login Failed!", error);
+        //     });
         }
     } else {
         // doc.data() will be undefined in this case

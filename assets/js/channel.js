@@ -145,7 +145,7 @@ dbRef.collection('channelmessages').orderBy("msgtime").where("channel_id", "==",
             if (doc.data().msg_by != currentUser.uid) {
                 channelhtml += '<div class="friend-chat">'
                         +'<div class="selected-user-info">'
-                        + '<p id=""><span class="selected-user-full-name"></span>&nbsp;&nbsp;'
+                        + '<p id="">'
                         +'<time class="chat-time" style="margin-top:-10px">'+doc.data().time+'</time></p>'
                         +'<p class="selected-user-chat">'+doc.data().text+'</p></div>'
                         +'</div>';
@@ -229,7 +229,6 @@ function sendChannelMsg() {
                     + '<div class="selected-user-info">'
                     + '<p class="text-right">'
                     + '<time class="chat-time">'+time+' </time> &nbsp;&nbsp;'
-                    + '<span class="selected-user-full-name">'+$("#currenUsersFullName").text()+'</span>'
                     + '</p>'
                     + '<p class="selected-user-chat text-right pull-right">'+message+'</p></div>'
                     + '</div>';

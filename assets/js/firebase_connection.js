@@ -1,6 +1,6 @@
 /*--------firebase configuration-------------*/
 
-firebase.initializeApp({
+const app = firebase.initializeApp({
   apiKey: "AIzaSyDnhWYeM7cy9GduqE8LlaMC0wQIk5Fr7eM",
   authDomain: "iochat-3210.firebaseapp.com",
   databaseURL: "https://iochat-3210.firebaseio.com",
@@ -8,7 +8,8 @@ firebase.initializeApp({
   storageBucket: "iochat-3210.appspot.com"
 });
 
-
+// Initialize Cloud Firestore and get a reference to the service
+//const db = getFirestore(app);
 
 /*------------create firebase references-------------*/
 const auth        = firebase.auth(); 
